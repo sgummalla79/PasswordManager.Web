@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Password Manager';
+  loadedTab: string = 'accounts';
+
+  onNavigate(tab: string) {
+    if (tab === "accounts")
+      this.loadedTab = "accounts";
+    else if (tab === "add")
+      this.loadedTab = "add";
+  }
 }
