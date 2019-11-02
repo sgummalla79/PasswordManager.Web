@@ -12,7 +12,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  public executeSelectedChange = (event) => {
-    console.log(event);
-  }
+  columnDefs = [
+    { headerName: 'Enivronment', field: 'environment' },
+    { headerName: 'Service Account', field: 'serviceAccount' },
+    { headerName: 'Password', field: 'password' }
+  ];
+
+  rowData = [
+    {"environment" : "Production", "serviceAccount": "test1", "password" : "test1"},
+    {"environment" : "Production", "serviceAccount": "test2", "password" : "test2"},
+    {"environment" : "Production", "serviceAccount": "test3", "password" : "test3"},
+    {"environment" : "Production", "serviceAccount": "test4", "password" : "test4"}
+  ];
 }
