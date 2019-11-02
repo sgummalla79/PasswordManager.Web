@@ -1,2 +1,11 @@
-@import 'ag-grid-community/dist/styles/ag-grid.css';
-@import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+.ag-row .ag-cell {
+    display: flex;
+    justify-content: right; /* align horizontal */
+    align-items: center;
+    font-weight: normal;
+    font-size: 10pt;
+  }
+
+  .ag-header-cell-label .ag-header-cell-text{
+    font-weight: bold;
+}

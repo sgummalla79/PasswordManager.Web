@@ -1,20 +1,20 @@
-import {Account} from "./account.model";
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
+
+@Injectable()
 export class AccountsService {
-    accounts : Account[] = [
-        new Account("Production", "test1","test1"),
-        new Account("Production", "test2","test2"),
-        new Account("Production", "test3","test3"),
-        new Account("Production", "test4","test4"),
-    ];
+    private basePath: string = "http://localhost:5000/api/PasswordStore/"
 
-    public getAccounts() : Account[] {
-        console.log(this.accounts);
-        return this.accounts;
+    constructor(private http: HttpClient) {
+
     }
 
-    public addAccount(account : Account) {
-        console.log(this.accounts);
-        this.accounts.push(account);
+    public fetchAccounts() {
+        return this.http.get(this.basePath);
+    }
+
+    public getPassword(id: number) {
+        return this.http.get(this.basePath + id + "/password");
     }
 }

@@ -1,4 +1,12 @@
-export class Account{
-    constructor(public environment : string,  public serviceAccount : string, public password : string){
-    }
+export interface IAccount {
+    environment:    string;
+    serviceAccount: string;
+    password:       string;
+    links:          ILink[];
+}
+
+export interface ILink {
+    href:   string;
+    rel:    string;
+    method: string;
 }

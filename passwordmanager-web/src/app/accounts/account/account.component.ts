@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../accounts.service';
-import { Account } from '../account.model';
+import { IAccount } from '../account.model';
 
 @Component({
   selector: 'app-account',
@@ -9,7 +9,7 @@ import { Account } from '../account.model';
 })
 export class AccountComponent implements OnInit {
 
-  account : Account = new Account("", "","");
+  account : IAccount;
   
   constructor(private accountService: AccountsService) { }
 
@@ -17,6 +17,6 @@ export class AccountComponent implements OnInit {
   }
 
   onAddServiceAccount() {
-    this.accountService.addAccount(this.account);
+    console.log("Saved");
   }
 }

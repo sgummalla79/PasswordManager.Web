@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../accounts.service';
-import { Account } from "../account.model";
+import { IAccount } from "../account.model";
+import { CellCustomComponent } from './cellcustom/cellCustom.component';
 
 @Component({
   selector: 'app-accounts-list',
@@ -9,17 +10,23 @@ import { Account } from "../account.model";
 })
 export class AccountsListComponent implements OnInit {
 
-  rowData: Account[] = [];
+  rowData: IAccount[] = [];
 
   constructor(private accountService: AccountsService) { }
 
   ngOnInit() {
-    this.rowData = this.accountService.getAccounts();
+    this.accountService.fetchAccounts().subscribe((responseData: IAccount[]) => {
+      this.rowData = responseData;
+    });
   }
 
   columnDefs = [
-    { headerName: 'Enivronment', field: 'environment' },
-    { headerName: 'Service Account', field: 'serviceAccount' },
-    { headerName: 'Password', field: 'password' }
+    { headerName: 'Enivronment', field: 'environment', width: 100, resizable: true },
+    { headerName: 'Service Account', field: 'serviceAccount', width: 100, resizable: true },
+    { headerName: 'Password', field: 'password', resizable: true, cellRendererFramework: CellCustomComponent }
   ];
+
+  onGridReady(gridOptions) {
+    gridOptions.api.sizeColumnsToFit();
+  }
 }
