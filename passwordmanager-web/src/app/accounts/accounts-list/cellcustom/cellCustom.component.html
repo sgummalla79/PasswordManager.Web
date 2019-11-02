@@ -1,9 +1,8 @@
 <div style="vertical-align: center;">
-{{ cellData }} 
-<span style="cursor:pointer;" title="Show Password"
-    class = "pull-right float-vertical-align glyphicon"
+{{ cellData }} <i style="cursor:pointer;" 
+    class="float-right float-vertical-align fa"
     [ngClass]="{
-    'glyphicon-eye-open':showPassword === false,
-    'glyphicon-eye-close':showPassword === true}"
-    (click)="togglePassword()"></span>
+        'fa-eye':showPassword === false,
+        'fa-eye-slash':showPassword === true}"
+    (click)="togglePassword()"></i>
 </div>
