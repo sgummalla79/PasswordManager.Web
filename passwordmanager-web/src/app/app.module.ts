@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
+import { ToastrModule } from 'ngx-toastr'; 
+import { NotificationComponent } from './notification/notification.component';
 
 //custom modules
 //import { AppRoutingModule } from './app-routing.module';
@@ -24,13 +27,16 @@ import { CellCustomComponent } from './accounts/accounts-list/cellcustom/cellCus
     AccountsComponent,
     HeaderComponent,
     CellCustomComponent,
+    NotificationComponent
   ],
   imports: [
     //built-in modules
     BrowserModule,
     FormsModule,
     AgGridModule.withComponents(null),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() 
     //custom modules
     //AppRoutingModule
   ],

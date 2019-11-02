@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { IAccount } from './account.model';
 
 
 @Injectable()
@@ -16,5 +17,9 @@ export class AccountsService {
 
     public getPassword(id: number) {
         return this.http.get(this.basePath + id + "/password");
+    }
+
+    public addAccount(account: IAccount) {
+        return this.http.post(this.basePath, account, {observe : 'response'});
     }
 }

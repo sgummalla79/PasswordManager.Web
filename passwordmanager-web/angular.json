@@ -34,7 +34,8 @@
               "node_modules/ag-grid-community/dist/styles/ag-theme-bootstrap.css",
               "node_modules/ag-grid-community/dist/styles/ag-theme-dark.css",
               "node_modules/ag-grid-community/dist/styles/ag-theme-fresh.css",
-              "node_modules/ag-grid-community/dist/styles/ag-theme-material.css"
+              "node_modules/ag-grid-community/dist/styles/ag-theme-material.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

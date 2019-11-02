@@ -32,7 +32,7 @@ export class CellCustomComponent implements AgRendererComponent {
 
     if (this.showPassword) {
       let rowData = this.params;
-      console.log(rowData);
+
       this.accountsService.getPassword(rowData.data.id)
         .subscribe((responseData: { password: string }) => {
           this.cellData = responseData.password;
