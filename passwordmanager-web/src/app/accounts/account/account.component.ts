@@ -30,7 +30,7 @@ export class AccountComponent implements OnInit {
         .subscribe((response: HttpResponseBase) => {
           if (response.status == 201) {
             this.toastr.success("Account Saved Successfully", 'Success');
-            this.accountsService.accountAdded.emit();
+            this.accountsService.accountsListChanged.emit();
             this.addAccountForm.reset();
           }
         }, (error: HttpResponseBase) => {

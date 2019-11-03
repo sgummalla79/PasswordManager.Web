@@ -1,5 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { IAccount } from './account.model';
 
 
@@ -7,7 +7,7 @@ import { IAccount } from './account.model';
 export class AccountsService {
     private basePath: string = "http://occinfwwatv01.corp.pvt:8092/api/PasswordStore/"
 
-    @Output() accountAdded = new EventEmitter();
+    @Output() accountsListChanged = new EventEmitter();
 
     constructor(private http: HttpClient) {
     }
@@ -22,5 +22,9 @@ export class AccountsService {
 
     public addAccount(account: IAccount) {
         return this.http.post(this.basePath, account, {observe : 'response'});
+    }
+
+    public deleteAccount(id : any) {
+        return this.http.delete(this.basePath + id, {observe: "response"});
     }
 }
