@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
 import { ToastrModule } from 'ngx-toastr'; 
 import { NotificationComponent } from './notification/notification.component';
@@ -15,9 +15,11 @@ import { AppComponent } from './app.component';
 import { AccountsListComponent } from './accounts/accounts-list/accounts-list.component';
 import { AccountComponent } from './accounts/account/account.component';
 import { AccountsService } from './accounts/accounts.service';
+import { AuthService } from './auth.service';
 import { AccountsComponent } from './accounts/accounts.component';
 import { HeaderComponent } from './header/header.component';
 import { CellCustomComponent } from './accounts/accounts-list/cellcustom/cellCustom.component';
+import { HttpRequestInterceptor } from './httpRequestInterceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { CellCustomComponent } from './accounts/accounts-list/cellcustom/cellCus
     //custom modules
     //AppRoutingModule
   ],
-  providers: [AccountsService],
+  providers: [AccountsService, AuthService, { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }],
   entryComponents: [CellCustomComponent],
   bootstrap: [AppComponent]
 })

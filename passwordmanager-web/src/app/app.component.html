@@ -1,5 +1,5 @@
 <div class="container">
-    <app-header (tabSelected)="onNavigate($event)"></app-header>
+    <app-header (tabSelected)="onNavigate($event)" [loggedInUser]="loggedInUser"></app-header>
     <hr/>
     <app-account *ngIf="loadedTab === 'add'"></app-account>
     <app-accounts-list *ngIf="loadedTab === 'accounts'"></app-accounts-list>

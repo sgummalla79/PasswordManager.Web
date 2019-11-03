@@ -21,12 +21,12 @@ export class AccountsListComponent implements OnInit {
   }
 
   columnDefs = [
-    { headerName: 'Enivronment', field: 'environment', width: 100, resizable: true },
-    { headerName: 'Service Account', field: 'serviceAccount', width: 100, resizable: true },
-    { headerName: 'Password', field: 'password', resizable: true, cellRendererFramework: CellCustomComponent }
+    { headerName: 'Enivronment', field: 'environment', width: 200, resizable: true },
+    { headerName: 'Service Account', field: 'serviceAccount', width: 200, resizable: true },
+    { headerName: 'Password', field: 'password', width: 500, resizable: true, cellRendererFramework: CellCustomComponent }
   ];
 
   onGridReady(gridOptions) {
-    gridOptions.api.sizeColumnsToFit();
+    //gridOptions.api.sizeColumnsToFit();
   }
 }

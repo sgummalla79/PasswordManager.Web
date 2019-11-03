@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { IAccount } from './account.model';
 
 
 @Injectable()
 export class AccountsService {
-    private basePath: string = "http://localhost:5000/api/PasswordStore/"
+    private basePath: string = "http://occinfwwatv01.corp.pvt:8092/api/PasswordStore/"
 
     constructor(private http: HttpClient) {
 
