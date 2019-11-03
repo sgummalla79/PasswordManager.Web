@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AccountsService } from '../accounts.service';
 import { IAccount } from "../account.model";
 import { CellCustomComponent } from './cellcustom/cellCustom.component';
@@ -13,6 +13,7 @@ import { HttpResponseBase } from '@angular/common/http';
 })
 export class AccountsListComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  @Input() darkMode : boolean = true;
 
   rowData: IAccount[] = [];
 
@@ -46,7 +47,7 @@ export class AccountsListComponent implements OnInit {
       this.accountsService.deleteAccount(selectedAccounts[0]).subscribe((response: HttpResponseBase) =>{
         if (response.status == 200){
           this.accountsService.accountsListChanged.emit();
-          this.toastr.success("Account Saved Successfully", 'Success');
+          this.toastr.success("Account Deleted Successfully", 'Success');
         }
       }, (error : HttpResponseBase)=>{
         console.log(error);

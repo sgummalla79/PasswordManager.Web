@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AccountsService } from '../accounts.service';
 import { IAccount } from '../account.model';
 import { NgForm } from '@angular/forms';
@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AccountComponent implements OnInit {
   @ViewChild('f', { static: false }) addAccountForm: NgForm;
+  @Input() darkMode : boolean = true;
 
   account: IAccount = { "environment": "", "serviceAccount": "", "password": "", links: [] };
 

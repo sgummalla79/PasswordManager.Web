@@ -9,8 +9,8 @@ import { IAuth } from './auth.model';
 })
 export class AppComponent implements OnInit{
 
+  darkMode: boolean = true;
   title = 'Password Vault';
-  loadedTab: string = 'nothing';
   loggedInUser: string = 'un-authorized';
 
   constructor(private authService : AuthService){
@@ -19,16 +19,12 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.authService.get().subscribe((response : IAuth) => {
       if (response.isAuthenticated == true){
-        this.loadedTab = "accounts";
         this.loggedInUser = response.user;
       }
     })
   }
 
-  onNavigate(tab: string) {
-    if (tab === "accounts")
-      this.loadedTab = "accounts";
-    else if (tab === "add")
-      this.loadedTab = "add";
+  onViewModeChanged(darkMode : boolean){
+    this.darkMode = darkMode;
   }
 }

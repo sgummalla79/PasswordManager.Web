@@ -1,7 +1,7 @@
 <div class="container">
-    <app-header (tabSelected)="onNavigate($event)" [loggedInUser]="loggedInUser"></app-header>
+    <app-header (viewModeChanged)="onViewModeChanged($event)" [loggedInUser]="loggedInUser"></app-header>
     <hr/>
-    <app-account></app-account>
+    <app-account [darkMode]="darkMode"></app-account>
     <hr/>
-    <app-accounts-list></app-accounts-list>
+    <app-accounts-list [darkMode]="darkMode"></app-accounts-list>
 </div>

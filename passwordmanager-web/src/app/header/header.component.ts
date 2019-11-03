@@ -6,16 +6,18 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  @Output() tabSelected = new EventEmitter<string>();
+  @Output() viewModeChanged = new EventEmitter<boolean>();
   @Input() loggedInUser : string = "un-authorized";
+
+  darkMode: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSelect(tab : string){
-    this.tabSelected.emit(tab);
+  onCheckChanged(){
+    this.darkMode = !this.darkMode;
+    this.viewModeChanged.emit(this.darkMode);
   }
 }
