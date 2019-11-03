@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable, Output, EventEmitter } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 import { IAccount } from './account.model';
 
 
@@ -7,8 +7,9 @@ import { IAccount } from './account.model';
 export class AccountsService {
     private basePath: string = "http://occinfwwatv01.corp.pvt:8092/api/PasswordStore/"
 
-    constructor(private http: HttpClient) {
+    @Output() accountAdded = new EventEmitter();
 
+    constructor(private http: HttpClient) {
     }
 
     public fetchAccounts() {

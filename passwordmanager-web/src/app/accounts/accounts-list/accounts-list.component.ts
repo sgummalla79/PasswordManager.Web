@@ -18,6 +18,12 @@ export class AccountsListComponent implements OnInit {
     this.accountService.fetchAccounts().subscribe((responseData: IAccount[]) => {
       this.rowData = responseData;
     });
+
+    this.accountService.accountAdded.subscribe(()=>{
+      this.accountService.fetchAccounts().subscribe((responseData: IAccount[]) => {
+        this.rowData = responseData;
+      });
+    })
   }
 
   columnDefs = [

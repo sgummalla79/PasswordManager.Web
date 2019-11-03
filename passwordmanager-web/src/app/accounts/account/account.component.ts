@@ -22,19 +22,22 @@ export class AccountComponent implements OnInit {
   }
 
   onSave() {
-    this.account.environment = this.addAccountForm.value.environment;
-    this.account.serviceAccount = this.addAccountForm.value.serviceAccount;
-    this.account.password = this.addAccountForm.value.password;
-    this.accountsService.addAccount(this.account)
-      .subscribe((response: HttpResponseBase) => {
-        if (response.status == 201) {
-          this.toastr.success("Account Saved Successfully", 'Success');
-          this.addAccountForm.reset();
-        }
-      }, (error: HttpResponseBase) => {
-        console.log(error);
-        this.toastr.error("Saving failed, please try again", 'Error');
-      });
+    if (this.addAccountForm.valid) {
+      this.account.environment = this.addAccountForm.value.environment;
+      this.account.serviceAccount = this.addAccountForm.value.serviceAccount;
+      this.account.password = this.addAccountForm.value.password;
+      this.accountsService.addAccount(this.account)
+        .subscribe((response: HttpResponseBase) => {
+          if (response.status == 201) {
+            this.toastr.success("Account Saved Successfully", 'Success');
+            this.accountsService.accountAdded.emit();
+            this.addAccountForm.reset();
+          }
+        }, (error: HttpResponseBase) => {
+          console.log(error);
+          this.toastr.error("Saving failed, please try again", 'Error');
+        });
+    }
   }
 
   onCancel() {
