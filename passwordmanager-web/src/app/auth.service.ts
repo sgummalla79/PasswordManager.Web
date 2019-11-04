@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class AuthService {
-    private basePath: string = "http://occinfwwatv01.corp.pvt:8092/api/auth/"
+    private basePath: string = "http://3DGJN12:8082/api/auth/"
 
     constructor(private http: HttpClient) {
     }

@@ -5,7 +5,7 @@ import { IAccount } from './account.model';
 
 @Injectable()
 export class AccountsService {
-    private basePath: string = "http://occinfwwatv01.corp.pvt:8092/api/PasswordStore/"
+    private basePath: string = "http://3DGJN12:8082/api/PasswordStore/"
 
     @Output() accountsListChanged = new EventEmitter();
 
